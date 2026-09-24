@@ -1,14 +1,77 @@
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PickaPath</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <h2 class="title">Signal Unknown</h2>
-        </header>
+<head>
+  <meta charset="UTF-8">
+  <title>PathWeaver</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+    #choices { margin-top: 20px; }
+    button { display: block; margin: 10px 0; padding: 10px; width: 100%; cursor: pointer; text-align: left; }
+  </style>
+</head>
+<body>
+
+  <!-- The screen containers -->
+      <p id="story-text">Loading adventure...</p>
+      <div id="choices"></div>
+
+      <script>
+        // 1. Store all your story nodes, paths, and choices
+        const storyData = {
+          start: {
+            text: "You stand at the entrance of a dark cave. You hear a strange humming sound from inside.",
+            choices: [
+              { text: "Enter the cave carefully", nextNode: "enterCave" },
+              { text: "Walk away into the forest", nextNode: "forest" }
+            ]
+          },
+          enterCave: {
+            text: "Inside, you find a glowing blue crystal floating in the air.",
+            choices: [
+              { text: "Touch the crystal", nextNode: "touchCrystal" },
+              { text: "Leave it alone and turn back", nextNode: "start" }
+            ]
+          },
+          forest: {
+            text: "You walk into the forest and live a peaceful, quiet life. The End.",
+            choices: [
+              { text: "Play Again", nextNode: "start" }
+            ]
+          },
+          touchCrystal: {
+            text: "The crystal teleports you to an alien spaceship! You win... maybe? The End.",
+            choices: [
+              { text: "Play Again", nextNode: "start" }
+            ]
+          }
+        };
+
+        // 2. The core function to update the screen
+        function dataScreen(nodeKey) {
+          const currentNode = storyData[nodeKey];
+
+          // Update the story narrative text
+          document.getElementById("story-text").textContent = currentNode.text;
+
+          // Clear out the previous choice buttons
+          const choicesContainer = document.getElementById("choices");
+          choicesContainer.innerHTML = "";
+
+          // Dynamically create a button for each available choice
+          currentNode.choices.forEach(choice => {
+            const button = document.createElement("button");
+            button.textContent = choice.text;
+        
+            // When clicked, this button calls dataScreen again with the next path
+            button.onclick = () => dataScreen(choice.nextNode);
+        
+            choicesContainer.appendChild(button);
+          });
+        }
+
+        // 3. Start the game on the 'start' node when the page loads
+        window.onload = () => dataScreen("start");
+    </script>
     </body>
 </html>
