@@ -1,0 +1,43 @@
+body {
+    background-color: #000000;
+}
+
+header {
+    background-color: #0d0d0d;
+    margin: 16px;
+    padding: 16px;
+    text-align: center;
+}
+
+.title {
+    color: #FFFFFF;
+    font-family: sans-serif;
+}
+
+.cushioning {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    
+    color: #FFFFFF;
+    background-color: #0d0d0d;
+    margin: 16px;
+    padding: 16px; 
+}
+
+.card {
+    color: #FFFFFF;
+    background-color: #202020;
+    border-radius: 15px;
+    margin: 16px;
+    padding: 16px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-family: sans-serif;
+}   
