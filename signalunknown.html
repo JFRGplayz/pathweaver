@@ -22,16 +22,18 @@
         start: {
           text: "It is 2047.\n\nFor the first time in human history, a signal has been detected coming from outside the Solar System.\n\nIt isn't random noise. It repeats **every 17 minutes, 42 seconds.**\n\nThe signal has been named **UNKNOWN-01.**\n\nYou are **in charge** of the first team assigned to investigate it.\n\nAfter several days of analysis, your team finally manages to decode a small section.\n\nThe message contains only three words:\n\n**\"DO NOT ANSWER.**\"\n\nThe room goes silent.\n\nWhat do you think?",
           choices: [
-            { text: "Continue decoding the signal.\nYou want to know who sent it and why.", nextNode: "decodeSignal" },
-            { text: "Stop the experiment.\nIf the message is genuine, answering could be dangerous.", nextNode: "stopExperiment" },
-            { text: "Send a simple response.\nMaybe whoever sent the signal can explain what the message means.", nextNode: "respondSignal" }
+            { text: "**Continue decoding the signal.**\nYou want to know who sent it and why.", nextNode: "decodeSignal" },
+            { text: "**Stop the experiment.**\nIf the message is genuine, answering could be dangerous.", nextNode: "stopExperiment" },
+            { text: "**Send a simple response.**\nMaybe whoever sent the signal can explain what the message means.", nextNode: "respondSignal" }
           ]
         },
         decodeSignal: {
-          text: "Decoding!!!",
+          text: "You continue processing the signal.\n\nThe computers work for several hours before another section becomes readable.\n\nA new message appears:\n\n**\"IT HEARS YOU.\"**\n\nBefore anyone can react, the signal changes again.\n\nA sequence of numbers begins repeating.\n\nYour computer identifies them as coordinates.\n\nYou enter them into the astronomical database.\n\nNothing appears.\n\nNo planet.\n\nNo star.\n\nNo known object.
+\n\nJust empty space.",
           choices: [
-            { text: "Touch the crystal", nextNode: "touchCrystal" },
-            { text: "Leave it alone and turn back", nextNode: "start" }
+            { text: "**Investigate the coordinates.**\nMaybe this is a location to meet, or wherever the signal was sent from.", nextNode: "investigateCoordinates" },
+            { text: "**Continue decoding the signal**\nThere might be more answers to your questions.", nextNode: "decodeMore" },
+            { text: "**Tell the public about UNKNOWN-01.**\nThis might be an international threat, the public should know.", nextNode: "tellPublic" }
           ]
         },
         stopExperiment: {
