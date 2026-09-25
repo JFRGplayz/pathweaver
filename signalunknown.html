@@ -17,62 +17,95 @@
       <div id="choices"></div>
 
       <script>
-        // 1. Store all your story nodes, paths, and choices
-        const storyData = {
-          start: {
-            text: "It is 2047.\n\nFor the first time in human history, a signal has been detected coming from outside the Solar System.\n\nIt isn't random noise. It repeats every 17 minutes, 42 seconds.\n\nThe signal has been named UNKNOWN-01.\n\nYou are part of the first team assigned to investigate it.\n\nAfter several days of analysis, your team finally manages to decode a small section.\n\nThe message contains only three words:\n\n\"DO NOT ANSWER.\"\n\nThe room goes silent.\n\nYour team asks what you think.",
-            choices: [
-              { text: "Continue decoding the signal.\nYou want to know who sent it and why.", nextNode: "decodeSignal" },
-              { text: "Stop the experiment.\nIf the message is genuine, answering could be dangerous.", nextNode: "stopExperiment" },
-              { text: "Send a simple response.\nMaybe whoever sent the signal can explain what the message means.", nextNode: "respondSignal" }
-            ]
-          },
-          decodeSignal: {
-            text: "Decoding!!!",
-            choices: [
-              { text: "Touch the crystal", nextNode: "touchCrystal" },
-              { text: "Leave it alone and turn back", nextNode: "start" }
-            ]
-          },
-          stopExperiment: {
-            text: "Why did you stop?",
-            choices: [
-              { text: "Play Again", nextNode: "start" }
-            ]
-          },
-          respondSignal: {
-            text: "Hey, aliens, you wanna meet?",
-            choices: [
-              { text: "Play Again", nextNode: "start" }
-            ]
-          }
-        };
-
-        // 2. The core function to update the screen
-        function dataScreen(nodeKey) {
-          const currentNode = storyData[nodeKey];
-
-          // Update the story narrative text
-          document.getElementById("story-text").textContent = currentNode.text;
-
-          // Clear out the previous choice buttons
-          const choicesContainer = document.getElementById("choices");
-          choicesContainer.innerHTML = "";
-
-          // Dynamically create a button for each available choice
-          currentNode.choices.forEach(choice => {
-            const button = document.createElement("button");
-            button.textContent = choice.text;
-        
-            // When clicked, this button calls dataScreen again with the next path
-            button.onclick = () => dataScreen(choice.nextNode);
-        
-            choicesContainer.appendChild(button);
-          });
+      // 1. Store all your story nodes, paths, and choices
+      const storyData = {
+        start: {
+          text: "It is 2047.\n\nFor the first time in human history, a signal has been detected coming from outside the Solar System.\n\nIt isn't random noise. It repeats every 17 minutes, 42 seconds.\n\nThe signal has been named UNKNOWN-01.\n\nYou are part of the first team assigned to investigate it.\n\nAfter several days of analysis, your team finally manages to decode a small section.\n\nThe message contains only three words:\n\n\"DO NOT ANSWER.\"\n\nThe room goes silent.\n\nYour team asks what you think.",
+          choices: [
+            { text: "Continue decoding the signal.\nYou want to know who sent it and why.", nextNode: "decodeSignal" },
+            { text: "Stop the experiment.\nIf the message is genuine, answering could be dangerous.", nextNode: "stopExperiment" },
+            // Added ** here around simple:
+            { text: "Send a **simple** response.\nMaybe whoever sent the signal can explain what the message means.", nextNode: "respondSignal" }
+          ]
+        },
+        decodeSignal: {
+          text: "Decoding!!!",
+          choices: [
+            { text: "Touch the crystal", nextNode: "touchCrystal" },
+            { text: "Leave it alone and turn back", nextNode: "start" }
+          ]
+        },
+        stopExperiment: {
+          text: "Why did you stop?",
+          choices: [
+            { text: "Play Again", nextNode: "start" }
+          ]
+        },
+        respondSignal: {
+          text: "Hey, aliens, you wanna meet?",
+          choices: [
+            { text: "Play Again", nextNode: "start" }
+          ]
         }
+      };
 
-        // 3. Start the game on the 'start' node when the page loads
-        window.onload = () => dataScreen("start");
+      // === ADDED FUNCTION HERE (MIDDLE OF FILE) ===
+      function renderSafeText(container, rawText, username = "") {
+        container.textContent = "";
+
+        let dynamicText = rawText.replace(/{name}/g, username);
+        const paragraphs = dynamicText.split("\n\n");
+
+        paragraphs.forEach(pText => {
+          if (!pText.trim()) return;
+
+          const pElement = document.createElement("p");
+          const parts = pText.split(/(\*\*.*?\*\*)/g);
+
+          parts.forEach(part => {
+            if (part.startsWith("**") && part.endsWith("**")) {
+              const boldElement = document.createElement("strong");
+              boldElement.textContent = part.slice(2, -2);
+              pElement.appendChild(boldElement);
+            } else {
+              pElement.appendChild(document.createTextNode(part));
+            }
+          });
+
+          container.appendChild(pElement);
+        });
+      }
+      // ============================================
+
+      // 2. The core function to update the screen
+      function dataScreen(nodeKey) {
+        const currentNode = storyData[nodeKey];
+
+        // Update the story narrative text safely using the bold markdown parser
+        const storyContainer = document.getElementById("story-text");
+        renderSafeText(storyContainer, currentNode.text);
+
+        // Clear out the previous choice buttons securely
+        const choicesContainer = document.getElementById("choices");
+        choicesContainer.textContent = ""; // Replaced innerHTML with clean text reset
+
+        // Dynamically create a button for each available choice
+        currentNode.choices.forEach(choice => {
+          const button = document.createElement("button");
+    
+          // CHANGED: We now safely pass the button element to the bold markdown parser
+          renderSafeText(button, choice.text);
+
+          // When clicked, this button calls dataScreen again with the next path
+          button.onclick = () => dataScreen(choice.nextNode);
+
+          choicesContainer.appendChild(button);
+        });
+      }
+
+      // 3. Start the game on the 'start' node when the page loads
+      window.onload = () => dataScreen("start");
+
     </script>
     </body>
 </html>
