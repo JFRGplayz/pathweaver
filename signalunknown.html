@@ -65,16 +65,21 @@
             },
 
             stopExperiment: {
-                text: "You **shut down** the equipment.\n\nThe room becomes silent.\n\nThen one of the monitors **turns back on**.\n\n**Nobody** touched it.\n\nA message appears.**\"WHY DID YOU STOP?\"**\n\nThe signal is *still being received.*\n\nYour equipment **isn't**.",
+                text: "You **shut down** the equipment.\n\nThe room becomes silent.\n\nThen one of the monitors **turns back on**.\n\n**Nobody** touched it.\n\nA message appears.**\"WHY DID YOU STOP?\"**\n\nThe signal is **still being received.**\n\nYour equipment **isn't**.",
                 choices: [
                     { text: "**Restart the equipment.**\nThe signal might have more to say.", nextNode: "restartEquipment" },
                     { text: "**Shut down the entire facility.**\nYou're getting a feeling there's malicious intent behind this signal.", nextNode: "shutdownFacility" },
                     { text: "**Respond to the message.**\nThe signal might have more to say.", nextNode: "respondSignal" }
                 ]
             },
+
+            restartEquipment: {
+                text: "You turn everything off and back on again, and never hear from the signal again.",
+                choices: [{ text: "Play Again", nextNode: "start" }]
+            },
             
-            investigateCoordinates: {
-                text: "You route deep-space sensors to the coordinates.\n\nAt first, there is nothing. Then, a distortion in light occurs. Something massive is masking its presence, waiting.",
+            shutdownFacility: {
+                text: "**\"Nah, I'm good.\"**",
                 choices: [{ text: "Play Again", nextNode: "start" }]
             },
             
