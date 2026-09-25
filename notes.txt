@@ -1,0 +1,457 @@
+# SIGNAL UNKNOWN
+
+**Category: Sci-Fi / Mystery / Thriller**
+
+---
+
+## BEGINNING
+
+### Scene 1: The Signal
+
+It is 2047.
+
+For the first time in human history, a signal has been detected coming from outside the Solar System.
+
+It isn't random noise. It repeats every 17 minutes and 42 seconds.
+
+The signal has been named **UNKNOWN-01**.
+
+You are part of the first team assigned to investigate it.
+
+After several days of analysis, your team finally manages to isolate a small section of the transmission.
+
+The room goes quiet as the computer processes the data.
+
+Three words appear on the screen:
+
+**"DO NOT ANSWER."**
+
+Nobody speaks for several seconds.
+
+Your supervisor looks around the room.
+
+"Well?"
+
+### Choices
+
+**1. Continue decoding the signal.**
+`decodeSignal`
+
+**2. Stop the experiment.**
+`stopExperiment`
+
+**3. Send a simple response.**
+`respondSignal`
+
+---
+
+# Scene 2A: Continue Decoding
+
+You continue processing the signal.
+
+The computers work for several hours before another section becomes readable.
+
+A new message appears:
+
+**"IT HEARS YOU."**
+
+Before anyone can react, the signal changes again.
+
+A sequence of numbers begins repeating.
+
+Your computer identifies them as coordinates.
+
+You enter them into the astronomical database.
+
+Nothing appears.
+
+No planet.
+
+No star.
+
+No known object.
+
+Just empty space.
+
+### Choices
+
+**1. Investigate the coordinates.**
+`investigateCoordinates`
+
+**2. Continue decoding the signal.**
+`decodeMore`
+
+**3. Tell the public about UNKNOWN-01.**
+`tellPublic`
+
+---
+
+# Scene 2B: Stop the Experiment
+
+You shut down the equipment.
+
+The room becomes silent.
+
+Then one of the monitors turns back on.
+
+Nobody touched it.
+
+A message appears.
+
+**"WHY DID YOU STOP?"**
+
+The signal is still being received.
+
+Your equipment isn't.
+
+### Choices
+
+**1. Restart the equipment.**
+`restartEquipment`
+
+**2. Shut down the entire facility.**
+`shutdownFacility`
+
+**3. Respond to the message.**
+`respondMessage`
+
+---
+
+# Scene 2C: Send a Response
+
+You type:
+
+**"WHO ARE YOU?"**
+
+The message is transmitted.
+
+Nothing happens.
+
+One minute passes.
+
+Then two.
+
+The signal changes.
+
+Your computer begins receiving data at a speed the system wasn't designed to handle.
+
+Images begin appearing.
+
+Star systems.
+
+Planets.
+
+Unknown structures.
+
+Something resembling a map.
+
+Then everything stops.
+
+A final message appears:
+
+**"YOU HAVE BEEN SEEN."**
+
+The signal disappears.
+
+---
+
+# Scene 3: The Coordinates
+
+You decide to investigate the coordinates.
+
+Your team compares them with astronomical records.
+
+There should be nothing there.
+
+But when the coordinates are plotted against historical observations, something strange appears.
+
+The coordinates form part of a trajectory.
+
+The path passes through several locations in space before ending at the UNKNOWN-01 coordinates.
+
+The path appears to begin near Earth.
+
+Nobody can explain why.
+
+### Choices
+
+**1. Search historical records for anything related to the trajectory.**
+`searchRecords`
+
+**2. Send a probe toward the coordinates.**
+`sendProbe`
+
+**3. Keep the discovery classified.**
+`keepClassified`
+
+---
+
+# Scene 4: The Old Mission
+
+The search through historical records produces something unexpected.
+
+A classified mission from 2021.
+
+Officially, it was a communications experiment.
+
+Three astronauts were sent beyond Earth's immediate orbital region.
+
+The mission was supposed to last eleven months.
+
+It never returned.
+
+The official report states that contact was lost.
+
+But buried inside the archived files is a recording that was never released.
+
+You play it.
+
+Static.
+
+Then a voice.
+
+**"We found something."**
+
+A long pause.
+
+**"It knows we're here."**
+
+The recording ends.
+
+### Choices
+
+**1. Find out where the ship disappeared.**
+`findShip`
+
+**2. Search for the astronauts' identities.**
+`findAstronauts`
+
+**3. Examine the rest of the mission records.**
+`examineRecords`
+
+---
+
+# Scene 5: The Missing Transmission
+
+You uncover more fragments from the 2021 mission.
+
+The astronauts had detected something.
+
+They didn't know what it was.
+
+Their reports describe unusual signals, strange movements in deep space, and an object they couldn't identify.
+
+Then the final transmission appears.
+
+The audio is damaged.
+
+You manage to recover one sentence:
+
+**"It isn't alone."**
+
+The recording cuts out.
+
+At almost the exact same moment, UNKNOWN-01 begins transmitting again.
+
+Your computer displays a new sequence.
+
+It isn't a message this time.
+
+It's coordinates.
+
+### Choices
+
+**1. Follow the new coordinates.**
+`followCoordinates`
+
+**2. Compare them with the 2021 mission.**
+`compareCoordinates`
+
+**3. Disconnect from UNKNOWN-01.**
+`disconnectSignal`
+
+---
+
+# Scene 6: The Connection
+
+The coordinates from UNKNOWN-01 match the location where the 2021 mission disappeared.
+
+Your team goes silent.
+
+This can't be a coincidence.
+
+You compare the original signal with the old mission's recordings.
+
+They contain the same frequency.
+
+UNKNOWN-01 isn't a new signal.
+
+It has been transmitting for at least 26 years.
+
+Then you notice something else.
+
+The signal isn't coming from the coordinates.
+
+The coordinates are being **sent by the signal**.
+
+Someone, somewhere, wants you to look there.
+
+### Choices
+
+**1. Send a probe.**
+`sendProbe`
+
+**2. Attempt to communicate again.**
+`contactSignal`
+
+**3. Search for more information about the 2021 mission.**
+`searchMission`
+
+---
+
+# Scene 7: The Discovery
+
+The probe reaches the coordinates.
+
+At first, it finds nothing.
+
+Then its sensors detect an object.
+
+It's small.
+
+Artificial.
+
+And completely unlike anything humanity has ever built.
+
+The probe approaches.
+
+Its camera activates.
+
+The object suddenly changes position.
+
+Not quickly.
+
+Instantly.
+
+The feed cuts to static.
+
+Then the camera comes back.
+
+The object is gone.
+
+But something else is visible.
+
+A planet.
+
+It wasn't there before.
+
+Your team checks the astronomical data.
+
+There is no record of a planet in that location.
+
+### Choices
+
+**1. Send the probe closer.**
+`approachPlanet`
+
+**2. Bring the probe back.**
+`recallProbe`
+
+**3. Try communicating with the object.**
+`contactObject`
+
+---
+
+# Scene 8: The Message
+
+Before anyone can make a decision, the signal changes.
+
+For the first time, it isn't repeating.
+
+It's communicating directly.
+
+A sentence appears:
+
+**"YOU FOUND IT."**
+
+Your supervisor asks:
+
+"Found what?"
+
+The computer begins displaying images.
+
+The strange object.
+
+The unknown planet.
+
+The 2021 spacecraft.
+
+Then something else.
+
+Earth.
+
+A photograph of Earth taken from space.
+
+The image is dated:
+
+**2047.**
+
+The exact date is today.
+
+Nobody speaks.
+
+### Choices
+
+**1. Ask how it got the image.**
+`askImage`
+
+**2. Ask what the object is.**
+`askObject`
+
+**3. Ask what it wants.**
+`askIntent`
+
+**4. Disconnect everything.**
+`disconnectAll`
+
+---
+
+# FINAL SECTION
+
+Whatever choice you make, the signal responds.
+
+But the response isn't an explanation.
+
+It's another set of coordinates.
+
+This time, they're much closer.
+
+They're inside the Solar System.
+
+Then another message appears:
+
+**"WE NEED TO SHOW YOU SOMETHING."**
+
+The transmission ends.
+
+Your team is left with a decision.
+
+### Choices
+
+**1. FOLLOW**
+Send a spacecraft to the new coordinates.
+`followSignal`
+
+**2. WAIT**
+Continue studying the signal before doing anything else.
+`waitAndStudy`
+
+**3. RESPOND**
+Ask the sender exactly what it wants to show you.
+`askWhat`
+
+**4. SHUT DOWN**
+End all communication with UNKNOWN-01.
+`shutdownSignal`
+
+The decision is yours.
