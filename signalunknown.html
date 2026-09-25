@@ -1,46 +1,47 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>PathWeaver</title>
-  <style>
-    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; line-height: 1.6; }
-    #choices { margin-top: 20px; }
-    button { display: block; margin: 10px 0; padding: 10px; width: 100%; cursor: pointer; text-align: left; }
-  </style>
-</head>
-<body>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>PathWeaver</title>
+    <style>
+      body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+      #story-text { white-space: pre-line; }
+      #choices { margin-top: 20px; }
+      button { display: block; margin: 10px 0; padding: 10px; width: 100%; cursor: pointer; text-align: left; }
+    </style>
+  </head>
+  <body>
 
-  <!-- The screen containers -->
-      <p id="story-text">Loading adventure...</p>
+    <!-- The screen containers -->
+      <p id="story-text">Loading </p>
       <div id="choices"></div>
 
       <script>
         // 1. Store all your story nodes, paths, and choices
         const storyData = {
           start: {
-            text: "You stand at the entrance of a dark cave. You hear a strange humming sound from inside.",
+            text: "It is 2047.\n\nFor the first time in human history, a signal has been detected coming from outside the Solar System.\n\nIt isn't random noise. It repeats every 17 minutes, 42 seconds.\n\nThe signal has been named UNKNOWN-01.\n\nYou are part of the first team assigned to investigate it.\n\nAfter several days of analysis, your team finally manages to decode a small section.\n\nThe message contains only three words:\n\n\"DO NOT ANSWER.\"\n\nThe room goes silent.\n\nYour team asks what you think.",
             choices: [
-              { text: "Enter the cave carefully", nextNode: "enterCave" },
-              { text: "Walk away into the forest", nextNode: "forest" }
+              { text: "Continue decoding the signal.\n\nYou want to know who sent it and why.", nextNode: "decodeSignal" },
+              { text: "Stop the experiment.\n\nIf the message is genuine, answering could be dangerous.", nextNode: "stopExperiment" },
+              { text: "Send a simple response.\n\nMaybe whoever sent the signal can explain what the message means.", nextNode: "respondSignal" }
             ]
           },
-          enterCave: {
-            text: "Inside, you find a glowing blue crystal floating in the air.",
+          decodeSignal: {
+            text: "Decoding!!!",
             choices: [
               { text: "Touch the crystal", nextNode: "touchCrystal" },
               { text: "Leave it alone and turn back", nextNode: "start" }
             ]
           },
-          forest: {
-            text: "You walk into the forest and live a peaceful, quiet life. The End.",
+          stopExperiment: {
+            text: "Why did you stop?",
             choices: [
               { text: "Play Again", nextNode: "start" }
             ]
           },
-          touchCrystal: {
-            text: "The crystal teleports you to an alien spaceship! You win... maybe? The End.",
+          respondSignal: {
+            text: "Hey, aliens, you wanna meet?",
             choices: [
               { text: "Play Again", nextNode: "start" }
             ]
