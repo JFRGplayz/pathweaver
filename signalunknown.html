@@ -59,26 +59,35 @@
                 text: "**You continue processing the signal.**\n\nThe computers work for **several hours** before another section becomes readable.\n\nA new message appears:\n\n**\"IT HEARS YOU.\"**\n\nBefore anyone can react, the signal **changes again.**\n\nA **sequence of numbers** begins repeating.\n\nYour computer identifies them as **coordinates.**\n\nYou enter them into the astronomical database.\n\n**Nothing appears.**\n\n**No planet.**\n\n**No star.**\n\n**No known object.**\n\nJust **empty space.**",
                 choices: [
                     { text: "**Investigate the coordinates.**\nMaybe this is a location to meet, or wherever the signal was sent from.", nextNode: "investigateCoordinates" },
-                    { text: "**Continue decoding the signal**\nThere might be  answers to your questions.", nextNode: "decodeMore" },
+                    { text: "**Decode the signal further.**\nThere might be  answers to your questions.", nextNode: "decodeMore" },
                     { text: "**Tell the public about UNKNOWN-01.**\nThis might be an international threat, the public should know.", nextNode: "tellPublic" }
                 ]
             },
+
+            stopExperiment: {
+                text: "You **shut down** the equipment.\n\nThe room becomes silent.\n\nThen one of the monitors **turns back on**.\n\n**Nobody** touched it.\n\nA message appears.**\"WHY DID YOU STOP?\"**\n\nThe signal is *still being received.*\n\nYour equipment **isn't**.",
+                choices: [
+                    { text: "**Restart the equipment.**\nThe signal might have more to say.", nextNode: "restartEquipment" },
+                    { text: "**Shut down the entire facility.**\nYou're getting a feeling there's malicious intent behind this signal.", nextNode: "shutdownFacility" },
+                    { text: "**Respond to the message.**\nThe signal might have more to say.", nextNode: "respondSignal" }
+                ]
+            },
+            
             investigateCoordinates: {
                 text: "You route deep-space sensors to the coordinates.\n\nAt first, there is nothing. Then, a distortion in light occurs. Something massive is masking its presence, waiting.",
                 choices: [{ text: "Play Again", nextNode: "start" }]
             },
+            
             decodeMore: {
                 text: "The deeper your team decodes, the weirder it gets. It is not an audio or text file; it is an uploaded map of our defense networks.",
                 choices: [{ text: "Play Again", nextNode: "start" }]
             },
+            
             tellPublic: {
                 text: "The news leaks globally. Panic spreads instantly, but a unified planetary defense protocol is established immediately.",
                 choices: [{ text: "Play Again", nextNode: "start" }]
             },
-            stopExperiment: {
-                text: "You power down the arrays. The room plunges into a heavy silence, leaving the mystery unresolved.",
-                choices: [{ text: "Play Again", nextNode: "start" }]
-            },
+            
             respondSignal: {
                 text: "You broadcast a baseline ping back into space. Minutes pass. Then, the console warnings light up in sequence.",
                 choices: [{ text: "Play Again", nextNode: "start" }]
