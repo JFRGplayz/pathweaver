@@ -48,7 +48,7 @@
     <script>
         const storyData = {
             start: {
-                text: "It is 2047.\n\nFor the first time in human history, a signal has been detected coming from outside the Solar System.\n\nIt isn't random noise. It repeats **every 17 minutes, 42 seconds.**\n\nThe signal has been named **UNKNOWN-01.**\n\nYou are **in charge** of the first team assigned to investigate it.\n\nAfter several days of analysis, your team finally manages to decode a small section.\n\nThe message contains only three words:\n\n**\"DO NOT ANSWER.**\"\n\nThe room goes silent.\n\nWhat do you think?",
+                text: "It is 2047.\n\nFor the first time in human history, a signal has been detected coming from outside the Solar System.\n\nIt isn't random noise. It repeats **every 17 minutes, 42 seconds.**\n\nThe signal has been named **UNKNOWN-01.**\n\nYou are **in charge** of the first team assigned to investigate it.\n\nAfter several days of analysis, your team finally manages to decode a small section.\n\nThe message contains only three words:\n\n**\"DO NOT ANSWER.\"**\n\nThe room goes silent.\n\nWhat do you think?",
                 choices: [
                     { text: "**Continue decoding the signal.**\nYou want to know who sent it and why.", nextNode: "decodeSignal" },
                     { text: "**Stop the experiment.**\nIf the message is genuine, answering could be dangerous.", nextNode: "stopExperiment" },
@@ -59,7 +59,7 @@
                 text: "**You continue processing the signal.**\n\nThe computers work for **several hours** before another section becomes readable.\n\nA new message appears:\n\n**\"IT HEARS YOU.\"**\n\nBefore anyone can react, the signal **changes again.**\n\nA **sequence of numbers** begins repeating.\n\nYour computer identifies them as **coordinates.**\n\nYou enter them into the astronomical database.\n\n**Nothing appears.**\n\n**No planet.**\n\n**No star.**\n\n**No known object.**\n\nJust **empty space.**",
                 choices: [
                     { text: "**Investigate the coordinates.**\nMaybe this is a location to meet, or wherever the signal was sent from.", nextNode: "investigateCoordinates" },
-                    { text: "**Decode the signal further.**\nThere might be  answers to your questions.", nextNode: "decodeMore" },
+                    { text: "**Decode the signal further.**\nThere might be answers to your questions.", nextNode: "decodeMore" },
                     { text: "**Tell the public about UNKNOWN-01.**\nThis might be an international threat, the public should know.", nextNode: "tellPublic" }
                 ]
             },
@@ -95,6 +95,201 @@
             
             respondSignal: {
                 text: "You type:\n\n**\"WHO ARE YOU?\"**\n\nThe message is transmitted.\n\nNothing happens.\n\nOne minute passes.\n\nThen two.\n\nThe signal changes.\n\nYour computer begins receiving data at a speed the system wasn't designed to handle.\n\nImages begin appearing.\n\nStar systems.\n\nPlanets.\n\nUnknown structures.\n\nSomething resembling a map.\n\nThen everything stops.\n\nA final message appears:\n\n**\"YOU HAVE BEEN SEEN.\"**\n\nThe signal disappears.",
+                choices: [{ text: "Continue", nextNode: "apocolypse" }]
+            },
+
+            investigateCoordinates: {
+                text: "You decide to investigate the coordinates.\n\nThe location is impossibly far away, beyond anything a human spacecraft could reach in a reasonable amount of time.\n\nYour team searches every astronomical database available.\n\nNothing.\n\nBut then you notice something strange.\n\nThe coordinates aren't pointing toward an object.\n\nThey're pointing along a trajectory.\n\nAnd according to the trajectory, it begins near Earth.\n\nYou search historical records for anything that might match it.",
+                choices: [
+                    { text: "**Search historical records.**\nMaybe something happened before UNKNOWN-01 was discovered.", nextNode: "searchRecords" },
+                    { text: "**Send a probe.**\nYou want to see what's actually there.", nextNode: "sendProbe" },
+                    { text: "**Keep the discovery classified.**\nNobody outside this room needs to know yet.", nextNode: "keepClassified" }
+                ]
+            },
+
+            searchRecords: {
+                text: "You search through decades of classified spaceflight records.\n\nMost of them are exactly what you'd expect.\n\nUntil you find one from **2021.**\n\nThe mission was listed as a routine deep-space observation mission.\n\nThree astronauts were sent into orbit.\n\nThey never returned.\n\nThe mission was officially classified as a communications failure.\n\nYou open the final recording.\n\nStatic fills the screen.\n\nThen a voice.\n\n**\"We found something.\"**\n\nThe recording cuts out.\n\nYou restore another fragment.\n\nThe same voice speaks again.\n\n**\"It knows we're here.\"**",
+                choices: [
+                    { text: "**Find where the ship disappeared.**\nMaybe the coordinates can tell you where they went.", nextNode: "findShip" },
+                    { text: "**Search the astronauts' identities.**\nYou want to know who was on that mission.", nextNode: "findAstronauts" },
+                    { text: "**Examine the rest of the mission records.**\nThere might be something everyone missed.", nextNode: "examineRecords" }
+                ]
+            },
+
+            findShip: {
+                text: "You locate the final recorded position of the 2021 spacecraft.\n\nYou compare it with the coordinates from UNKNOWN-01.\n\nThey're almost identical.\n\nAlmost.\n\nThe difference is small enough to look like an error.\n\nUntil you realize the coordinates are moving.\n\nNot randomly.\n\nThey're following a path.\n\nYou follow it through the old mission data.\n\nThe path leads farther into space.\n\nThen the signal changes.\n\nA new message appears.\n\n**\"IT ISN'T ALONE.\"**",
+                choices: [
+                    { text: "**Follow the new coordinates.**\nWhatever is out there seems to want you to find it.", nextNode: "followCoordinates" },
+                    { text: "**Compare them with the 2021 mission.**\nMaybe the old crew followed the same path.", nextNode: "compareCoordinates" },
+                    { text: "**Disconnect from UNKNOWN-01.**\nYou've learned enough for now.", nextNode: "disconnectSignal" }
+                ]
+            },
+
+             findAstronauts: {
+                text: "You search for the three astronauts.\n\nTheir names appear in the mission records.\n\nThen you notice something strange.\n\nTwo of them were officially declared dead.\n\nThe third was never declared dead at all.\n\nTheir status simply says:\n\n**MISSING.**\n\nYou search every database you can access.\n\nNothing.\n\nThen a new UNKNOWN-01 transmission appears.\n\nIt contains a single sequence of numbers.\n\nYou recognize them immediately.\n\nThey're the missing astronaut's mission identification number.",
+                choices: [
+                    { text: "**Search for the astronaut.**\nSomeone has to know where they went.", nextNode: "searchMission" },
+                    { text: "**Follow the signal's coordinates.**\nThe transmission may have the answer.", nextNode: "followCoordinates" },
+                    { text: "**Disconnect from UNKNOWN-01.**\nThis is getting too personal.", nextNode: "disconnectSignal" }
+                ]
+            },
+
+            examineRecords: {
+                text: "You spend hours going through the 2021 mission records.\n\nMost of the files are corrupted.\n\nOne file isn't.\n\nIt contains a recording timestamped just minutes before the spacecraft disappeared.\n\nThe crew is looking at something outside the window.\n\nYou can't see what they're looking at.\n\nThen one astronaut says:\n\n**\"It's moving.\"**\n\nAnother responds:\n\n**\"That's impossible.\"**\n\nThe recording ends.\n\nA moment later, UNKNOWN-01 sends new coordinates.",
+                choices: [
+                    { text: "**Follow the coordinates.**\nWhatever the crew saw might still be there.", nextNode: "followCoordinates" },
+                    { text: "**Compare the coordinates with the old mission.**\nMaybe there's a connection.", nextNode: "compareCoordinates" },
+                    { text: "**Disconnect from UNKNOWN-01.**\nYou don't want to keep going.", nextNode: "disconnectSignal" }
+                ]
+            },
+
+            sendProbe: {
+                text: "You prepare an unmanned probe.\n\nThe coordinates are entered.\n\nThe probe launches.\n\nFor several hours, everything looks normal.\n\nThen the signal changes.\n\nThe probe's telemetry begins showing something unexpected.\n\nThe coordinates aren't empty.\n\nSomething is there.\n\nYou just can't see it.\n\nThe probe continues toward the location.",
+                choices: [
+                    { text: "**Keep the probe moving.**\nYou need to know what's there.", nextNode: "approachPlanet" },
+                    { text: "**Recall the probe.**\nYou don't know what you're approaching.", nextNode: "recallProbe" },
+                    { text: "**Send a message through the probe.**\nMaybe UNKNOWN-01 will respond.", nextNode: "contactObject" }
+                ]
+            },
+
+            keepClassified: {
+                text: "You lock the discovery behind the highest level of clearance.\n\nOnly your team knows about the coordinates.\n\nFor the next several hours, nothing happens.\n\nThen your computer receives another transmission.\n\nNo new coordinates.\n\nNo new message.\n\nJust a photograph.\n\nIt's an image of Earth.\n\nThe timestamp reads:\n\n**2047.**\n\nToday's date.\n\nYou check the observatory cameras.\n\nNothing unusual.\n\nYou look back at the screen.\n\nA second image appears.\n\nThis one is your facility.",
+                choices: [
+                    { text: "**Continue investigating.**\nSomeone or something is watching.", nextNode: "followCoordinates" },
+                    { text: "**Disconnect everything.**\nWhatever is sending these images knows too much.", nextNode: "disconnectAll" }
+                ]
+            },
+
+            compareCoordinates: {
+                text: "You overlay the coordinates from the 2021 mission with the new coordinates.\n\nThey match.\n\nNot approximately.\n\nExactly.\n\nUNKNOWN-01 has been sending coordinates connected to the same location for **26 years.**\n\nThen you notice something else.\n\nThe coordinates aren't coming from the location.\n\nThey're being sent **from somewhere else.**\n\nThe signal changes.\n\n**\"YOU HAVE BEEN LOOKING IN THE WRONG PLACE.\"**",
+                choices: [
+                    { text: "**Follow the new coordinates.**", nextNode: "followCoordinates" },
+                    { text: "**Ask UNKNOWN-01 what it means.**", nextNode: "contactSignal" },
+                    { text: "**Disconnect.**", nextNode: "disconnectSignal" }
+                ]
+            },
+
+            followCoordinates: {
+                text: "You follow the new coordinates.\n\nThey lead far beyond the original location.\n\nYour computer struggles to process the distance.\n\nThen the coordinates stop changing.\n\nSomething has been found.\n\nYour team stares at the screen.\n\nThere is an object at the exact location.\n\nIt shouldn't be there.\n\nIt doesn't match any known spacecraft, asteroid, moon, or natural object.\n\nThen it moves.\n\nNot away.\n\nNot toward you.\n\nIt simply appears somewhere else.\n\nA planet becomes visible behind it.\n\nYour astronomical database has no record of the planet.",
+                choices: [
+                    { text: "**Send the probe closer.**\nYou need to see the object.", nextNode: "approachPlanet" },
+                    { text: "**Recall the probe.**\nWhatever that thing is, you're not getting closer.", nextNode: "recallProbe" },
+                    { text: "**Communicate with the object.**\nYou need to know if it's responding.", nextNode: "contactObject" }
+                ]
+            },
+
+            approachPlanet: {
+                text: "The probe moves closer.\n\nThe unknown object doesn't react.\n\nThe planet becomes clearer.\n\nThere are no obvious cities.\n\nNo artificial lights.\n\nNo signs of civilization.\n\nThen the probe receives a transmission.\n\nNot from Earth.\n\nNot from the object.\n\nDirectly from UNKNOWN-01.\n\nThe message contains four words:\n\n**\"YOU FOUND IT.\"**",
+                choices: [
+                    { text: "**Ask how it got your image.**\nYou want to know how much it can see.", nextNode: "askImage" },
+                    { text: "**Ask what the object is.**\nMaybe it will finally explain.", nextNode: "askObject" },
+                    { text: "**Ask what it wants.**\nYou need an answer.", nextNode: "askIntent" },
+                    { text: "**Disconnect everything.**\nYou've seen enough.", nextNode: "disconnectAll" }
+                ]
+            },
+
+            recallProbe: {
+                text: "You order the probe to return.\n\nIt begins moving.\n\nThen it stops.\n\nYou send the command again.\n\nNothing.\n\nThe probe's camera turns toward the unknown object.\n\nFor a few seconds, nothing happens.\n\nThen a message appears on your screen.\n\n**\"WHY ARE YOU LEAVING?\"**\n\nThe probe begins transmitting again.\n\nBut not its own data.\n\nSomeone is sending you something through it.",
+                choices: [
+                    { text: "**Keep watching.**", nextNode: "askImage" },
+                    { text: "**Destroy the connection.**", nextNode: "disconnectAll" }
+                ]
+            },
+
+            contactObject: {
+                text: "You send a message.\n\n**\"CAN YOU HEAR US?\"**\n\nThe response arrives immediately.\n\n**\"YES.\"**\n\nYour entire team freezes.\n\nYou send another message.\n\n**\"WHO ARE YOU?\"**\n\nThere is a pause.\n\nThen:\n\n**\"NOT THE QUESTION YOU SHOULD ASK.\"**\n\nA set of coordinates appears.\n\nThey're inside the Solar System.",
+                choices: [
+                    { text: "**Follow the coordinates.**", nextNode: "followSignal" },
+                    { text: "**Ask what the question should be.**", nextNode: "askWhat" },
+                    { text: "**Shut down the connection.**", nextNode: "shutdownSignal" }
+                ]
+            },
+
+            contactSignal: {
+                text: "You type:\n\n**\"WHAT DO YOU MEAN?\"**\n\nThe response takes seventeen minutes and forty-two seconds.\n\nExactly.\n\n**\"YOU HAVE BEEN LOOKING AT THE SIGNAL.\"**\n\nAnother message appears.\n\n**\"YOU SHOULD BE LOOKING AT WHAT IS LISTENING.\"**",
+                choices: [
+                    { text: "**Ask what is listening.**", nextNode: "askWhat" },
+                    { text: "**Follow the new coordinates.**", nextNode: "followSignal" },
+                    { text: "**Disconnect.**", nextNode: "disconnectAll" }
+                ]
+            },
+
+            askImage: {
+                text: "You ask:\n\n**\"HOW DID YOU GET THAT IMAGE?\"**\n\nThe response appears instantly.\n\n**\"YOU SENT IT.\"**\n\nNobody in the room speaks.\n\nYou check every transmission log.\n\nYour team never sent an image.\n\nThen another message appears.\n\n**\"NOT YET.\"**",
+                choices: [
+                    { text: "**Ask what that means.**", nextNode: "askWhat" },
+                    { text: "**Ask what the object is.**", nextNode: "askObject" },
+                    { text: "**Disconnect everything.**", nextNode: "disconnectAll" }
+                ]
+            },
+
+             askObject: {
+                text: "You ask:\n\n**\"WHAT IS THAT OBJECT?\"**\n\nThe answer appears.\n\n**\"A DOOR.\"**\n\nYou stare at the screen.\n\nAnother message follows.\n\n**\"YOU HAVE BEEN KNOCKING FOR 26 YEARS.\"**",
+                choices: [
+                    { text: "**Ask what is behind the door.**", nextNode: "askWhat" },
+                    { text: "**Follow the coordinates.**", nextNode: "followSignal" },
+                    { text: "**Disconnect everything.**", nextNode: "disconnectAll" }
+                ]
+            },
+
+            askIntent: {
+                text: "You type:\n\n**\"WHAT DO YOU WANT?\"**\n\nThe answer takes exactly seventeen minutes and forty-two seconds.\n\n**\"WE NEED TO SHOW YOU SOMETHING.\"**\n\nNew coordinates appear.\n\nThis time, they're much closer.\n\nInside the Solar System.",
+                choices: [
+                    { text: "**Follow the coordinates.**", nextNode: "followSignal" },
+                    { text: "**Ask what it wants to show you.**", nextNode: "askWhat" },
+                    { text: "**Shut down the connection.**", nextNode: "shutdownSignal" }
+                ]
+            },
+
+            disconnectSignal: {
+                text: "You disconnect UNKNOWN-01.\n\nThe signal disappears.\n\nFor several minutes, nothing happens.\n\nThen every screen in the facility turns on.\n\nOne message appears:\n\n**\"YOU CAN TURN OFF THE SIGNAL.\"**\n\nA second message appears.\n\n**\"YOU CANNOT TURN OFF THE LISTENER.\"**",
+                choices: [
+                    { text: "**Reconnect.**", nextNode: "followSignal" },
+                    { text: "**Shut down the facility.**", nextNode: "shutdownSignal" }
+                ]
+            },
+
+            disconnectAll: {
+                text: "You cut every connection to UNKNOWN-01.\n\nThe room goes dark.\n\nThe computers shut down.\n\nFor the first time in days, there is silence.\n\nThen one final monitor turns on.\n\nIt displays a single message:\n\n**\"WE'LL WAIT.\"**\n\nThe screen goes black.\n\n**END**",
+                choices: [{ text: "Play Again", nextNode: "start" }]
+            },
+
+            followSignal: {
+                text: "You follow the coordinates.\n\nThe signal guides your team deeper into the Solar System.\n\nThen the coordinates stop.\n\nThey're pointing toward a location that should contain nothing.\n\nBut something is there.\n\nYour instruments detect a structure.\n\nArtificial.\n\nHuge.\n\nAnd completely silent.\n\nThen UNKNOWN-01 sends one final message:\n\n**\"WE NEED TO SHOW YOU SOMETHING.\"**",
+                choices: [
+                    { text: "**FOLLOW.**\nSend a spacecraft toward the structure.", nextNode: "finalFollow" },
+                    { text: "**WAIT.**\nKeep studying it from a distance.", nextNode: "finalWait" },
+                    { text: "**RESPOND.**\nAsk what it wants to show you.", nextNode: "askWhat" },
+                    { text: "**SHUT DOWN.**\nEnd communication completely.", nextNode: "shutdownSignal" }
+                ]
+            },
+
+            askWhat: {
+                text: "You ask:\n\n**\"WHAT DO YOU WANT TO SHOW US?\"**\n\nThe response arrives.\n\n**\"THE OTHER SIDE.\"**\n\nA new coordinate appears.\n\nYour team checks it.\n\nIt isn't pointing toward the unknown planet.\n\nIt isn't pointing toward the object.\n\nIt's pointing toward **Earth.**",
+                choices: [
+                    { text: "**Follow the coordinates.**", nextNode: "finalFollow" },
+                    { text: "**Ask what is on the other side.**", nextNode: "finalWait" },
+                    { text: "**Shut everything down.**", nextNode: "shutdownSignal" }
+                ]
+            },
+
+             shutdownSignal: {
+                text: "You shut down the facility.\n\nThe last remaining monitor goes black.\n\nFor the first time since UNKNOWN-01 was discovered, there is no signal.\n\nNo coordinates.\n\nNo messages.\n\nNothing.\n\nThen, from somewhere outside the facility, a radio turns on by itself.\n\nStatic.\n\nSeventeen minutes pass.\n\nThen forty-two seconds.\n\nA voice comes through.\n\n**\"HELLO.\"**\n\n**END**",
+                choices: [{ text: "Play Again", nextNode: "start" }]
+            },
+
+            apocalypse: {
+                text: "The signal disappears.\n\nFor a moment, everything is silent.\n\nYour team waits.\n\nNothing happens.\n\nThen the lights flicker.\n\nYour computer screens shut off one by one.\n\nAcross the facility, alarms begin going off.\n\nYou look outside.\n\nThe sky is changing.\n\nA strange light spreads across the horizon.\n\nYour team tries to contact the outside world.\n\nNo response.\n\nThen every screen in the facility turns back on at once.\n\nA single message appears:\n\n**\"YOU SHOULD NOT HAVE ANSWERED.\"**\n\nThe message disappears.\n\nThe lights go out.\n\nOutside, the horizon is completely dark.\n\n**END**",
+                choices: [{ text: "Play Again", nextNode: "start" }]
+            },
+
+            finalFollow: {
+                text: "You make your decision.\n\nThe spacecraft launches.\n\nThe coordinates guide it toward the unknown structure.\n\nAs it approaches, the structure begins to change.\n\nSections of it move.\n\nA huge opening appears.\n\nBeyond it is not empty space.\n\nIt is something your instruments cannot describe.\n\nYour screen fills with static.\n\nThen one final message appears:\n\n**\"NOW YOU CAN SEE.\"**\n\nThe transmission ends.\n\nThe screen goes black.\n\n**TO BE CONTINUED...**",
+                choices: [{ text: "Play Again", nextNode: "start" }]
+            },
+
+            finalWait: {
+                text: "You decide to wait.\n\nYour team continues observing the structure.\n\nMinutes pass.\n\nThen hours.\n\nNothing moves.\n\nEventually, UNKNOWN-01 sends another message.\n\n**\"YOU ARE AFRAID OF THE ANSWER.\"**\n\nYou type:\n\n**\"WHAT ANSWER?\"**\n\nThe reply appears immediately.\n\n**\"THAT YOU WERE NEVER THE FIRST.\"**\n\nThe signal disappears.\n\n**TO BE CONTINUED...**",
                 choices: [{ text: "Play Again", nextNode: "start" }]
             }
         };
